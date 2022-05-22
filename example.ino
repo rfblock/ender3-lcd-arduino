@@ -1,3 +1,7 @@
+// This is a bit of example code that displays an image onto the connected LCD
+// The rotary encoder is displayed via the Serial plotter
+// The encoder button makes a 100s beep, and zeros the rotary encoder
+// This was originally made with Teensy 4, however the code should work just fine on any Arduino or similar microcontroller
 
 #define ENCODER_OPTIMIZE_INTERRUPTS
 #include <Encoder.h>
@@ -11,15 +15,11 @@
 
 #define BEEP_PIN 5
 
-
 #define LCD_CS_PIN 10
 #define LCD_CS0_PIN 12
 #define LCD_SCK_PIN 18
 #define LCD_MOSI_PIN 19
 
-//U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0/*, LCD_EN_PIN, LCD_RW_PIN /*,LCD_RS_PIN*/);
-//U8G2_ST7567_JLX12864_F_SW_SPI u8g2(U8G2_R0, LCD_RS_PIN, LCD_EN_PIN, LCD_RW_PIN, LCD_RW_PIN);
-//U8G2_ST7567_ENH_DG128064_F_4W_SW_SPI u8g2(U8G2_R0, LCD_SCK_PIN, LCD_CS0_PIN, LCD_MOSI_PIN, LCD_CS_PIN);
 U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, LCD_SCK_PIN, LCD_MOSI_PIN, LCD_CS_PIN);
 
 static unsigned char steggyBMP[] PROGMEM = {
